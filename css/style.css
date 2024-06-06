@@ -69,22 +69,40 @@ a {
 }
 
 .nav__item {
+  position: relative;
   width: 10.6rem;
   height: 4.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 400;
 }
 
 .nav__link {
   text-transform: uppercase;
+  text-align: center;
   color: #000;
   letter-spacing: 1.6px;
 }
 
-.nav__item:hover {
-  border: 0.2rem solid #000;
+.nav__item::after {
+  content: "";
+  position: absolute;
+  padding-block: 2rem;
+  padding-inline: 5rem;
+  top: 0;
+  left: 0;
+  transform: translate(-50% -50%);
+  border: 0.2rem solid transparent;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
   font-weight: 600;
+  opacity: 0;
+}
+
+.nav__item:hover::after {
+  border: 0.2rem solid currentColor;
+  opacity: 1;
 }
 
 .header__soc1als {
